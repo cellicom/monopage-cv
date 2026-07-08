@@ -14,7 +14,7 @@
   },
   "private": true,
   "config": {
-    "usePhpApi": true
+    "usePhpApi": false
   },
   "scripts": {
     "dev": "quasar dev",
