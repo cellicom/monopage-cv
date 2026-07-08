@@ -1198,14 +1198,16 @@ export default {
     async uploadAvatar (file) {
       if (!file) return
       try {
-        await this.$axios.post('/api/save-avatar', file, {
+        const usePhp = process.env.USE_PHP_API !== 'false'
+        const url = usePhp ? '/api.php?action=save-avatar' : '/api/save-avatar'
+        await this.$axios.post(url, file, {
           headers: { 'Content-Type': file.type }
         })
         window.mainVue.rawCV.img = '/avatar.jpg'
         this.avatarTs = Date.now()
-        this.$q.notify({ type: 'positive', message: 'Immagine caricata!' })
+        this.$q.notify({ type: 'positive', message: this.tForLang('imageUploaded', this.selectedLang) })
       } catch (e) {
-        this.$q.notify({ type: 'negative', message: 'Errore upload immagine (dev server non disponibile)' })
+        this.$q.notify({ type: 'negative', message: this.tForLang('imageUploadError', this.selectedLang) })
       }
     },
     moveUp (array, index) {
@@ -1296,15 +1298,15 @@ export default {
         ? (await this.sha256(this.pwForm.current)) === stored
         : this.pwForm.current === 'admin'
       if (!currentOk) {
-        this.$q.notify({ type: 'negative', message: 'Password attuale non corretta' }); return
+        this.$q.notify({ type: 'negative', message: this.tForLang('passwordIncorrect', this.selectedLang) }); return
       }
       if (!this.pwForm.next || this.pwForm.next !== this.pwForm.confirm) {
-        this.$q.notify({ type: 'negative', message: 'Le nuove password non coincidono' }); return
+        this.$q.notify({ type: 'negative', message: this.tForLang('passwordsDoNotMatch', this.selectedLang) }); return
       }
       window.mainVue.rawCV.adminPassword = await this.sha256(this.pwForm.next)
       this.pwForm = { current: '', next: '', confirm: '' }
       await this.saveChanges()
-      this.$q.notify({ type: 'positive', message: 'Password aggiornata!' })
+      this.$q.notify({ type: 'positive', message: this.tForLang('passwordUpdated', this.selectedLang) })
     },
     cloneCV () {
       if (window.mainVue && window.mainVue.rawCV && window.mainVue.rawCV.data) {
@@ -1368,11 +1370,13 @@ export default {
 
       try {
         // Send POST request to dev server API endpoint
-        const response = await this.$axios.post('/api/save-cv', window.mainVue.rawCV)
+        const usePhp = process.env.USE_PHP_API !== 'false'
+        const url = usePhp ? '/api.php?action=save-cv' : '/api/save-cv'
+        const response = await this.$axios.post(url, window.mainVue.rawCV)
         if (response.data && response.data.success) {
           this.$q.notify({
             type: 'positive',
-            message: 'Modifiche salvate con successo nel file cv.json!'
+            message: this.tForLang('settingsSaved', this.selectedLang)
           })
           // Sync frontend cv if currentLang matches selectedLang
           if (window.mainVue.currentLang === this.selectedLang) {
@@ -1380,21 +1384,22 @@ export default {
           }
         }
       } catch (err) {
-        console.warn('Dev server API not available or error saving:', err)
-        // Fallback for static hosting: trigger file download of cv.json
+        console.warn('Server API not available or error saving:', err)
+        // Fallback for static hosting: trigger file download of settings
         this.downloadJSON(window.mainVue.rawCV)
         this.$q.notify({
           type: 'warning',
-          message: 'Dev server non disponibile. Il file cv.json è stato scaricato nei Download del browser.',
-          caption: 'Sostituisci manualmente il file public/cv.json con quello scaricato.'
+          message: this.tForLang('serverUnavailableSettingsSavedLocally', this.selectedLang),
+          caption: this.tForLang('saveManualInstructions', this.selectedLang)
         })
       }
     },
     downloadJSON (data) {
       const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data, null, 2))
       const downloadAnchor = document.createElement('a')
+      const usePhp = process.env.USE_PHP_API !== 'false'
       downloadAnchor.setAttribute('href', dataStr)
-      downloadAnchor.setAttribute('download', 'cv.json')
+      downloadAnchor.setAttribute('download', 'impostazioni.json')
       document.body.appendChild(downloadAnchor)
       downloadAnchor.click()
       downloadAnchor.remove()
@@ -1710,7 +1715,7 @@ export default {
       this.cloneCV()
       this.$q.notify({
         type: 'positive',
-        message: `Struttura vuota creata per ${this.getLangLabel(lang)}!`
+        message: this.tForLang('emptyCVStructureCreated', this.selectedLang).replace('{lang}', this.getLangLabel(lang))
       })
     },
     promptImportSource (lang) {
@@ -1757,7 +1762,7 @@ export default {
         this.cloneCV()
         this.$q.notify({
           type: 'positive',
-          message: `Dati importati con successo da ${this.getLangLabel(sourceLang)}!`
+          message: this.tForLang('dataImportedSuccess', this.selectedLang).replace('{lang}', this.getLangLabel(sourceLang))
         })
       }).onCancel(() => {
         this.selectedLang = this.prevSelectedLang
@@ -1833,7 +1838,9 @@ export default {
         this.prevSelectedLang = remainingLang
 
         try {
-          const response = await this.$axios.post('/api/save-cv', window.mainVue.rawCV)
+          const usePhp = process.env.USE_PHP_API !== 'false'
+          const url = usePhp ? '/api.php?action=save-cv' : '/api/save-cv'
+          const response = await this.$axios.post(url, window.mainVue.rawCV)
           if (response.data && response.data.success) {
             this.$q.notify({
               type: 'positive',
@@ -1845,11 +1852,11 @@ export default {
             this.cloneCV()
           }
         } catch (err) {
-          console.warn('Error saving cv after language deletion:', err)
+          console.warn('Error saving settings after language deletion:', err)
           this.downloadJSON(window.mainVue.rawCV)
           this.$q.notify({
             type: 'warning',
-            message: 'Dev server non disponibile. Il file cv.json è stato scaricato.'
+            message: this.tForLang('serverUnavailableSettingsDownloaded', this.selectedLang)
           })
           this.cloneCV()
         }

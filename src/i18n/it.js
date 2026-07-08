@@ -152,5 +152,16 @@ export default {
   sectionTitleLabel: 'Titolo Sezione (es. Associazioni Culturali)',
   addSection: 'Aggiungi Sezione',
   privacyLabelTitle: 'Trattamento dei Dati Personali (Privacy)',
-  privacyStatement: 'Dichiarazione Privacy'
+  privacyStatement: 'Dichiarazione Privacy',
+  imageUploaded: 'Immagine caricata!',
+  imageUploadError: 'Errore upload immagine (server non disponibile)',
+  settingsSaved: 'Modifiche salvate con successo nelle impostazioni!',
+  serverUnavailableSettingsSavedLocally: 'Server non disponibile. Le impostazioni sono state scaricate nei Download del browser.',
+  saveManualInstructions: 'Sostituisci manualmente il file delle impostazioni sul server con quello scaricato.',
+  serverUnavailableSettingsDownloaded: 'Server non disponibile. Le impostazioni sono state scaricate.',
+  passwordIncorrect: 'Password attuale non corretta',
+  passwordsDoNotMatch: 'Le nuove password non coincidono',
+  passwordUpdated: 'Password aggiornata!',
+  emptyCVStructureCreated: 'Struttura vuota creata per {lang}!',
+  dataImportedSuccess: 'Dati importati con successo da {lang}!'
 }

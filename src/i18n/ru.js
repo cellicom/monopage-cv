@@ -152,5 +152,16 @@ export default {
   sectionTitleLabel: 'Название раздела (например, Культурные ассоциации)',
   addSection: 'Добавить раздел',
   privacyLabelTitle: 'Trattamento dei Dati Personali (Конфиденциальность)',
-  privacyStatement: 'Согласие на обработку данных'
+  privacyStatement: 'Согласие на обработку данных',
+  imageUploaded: 'Изображение загружено!',
+  imageUploadError: 'Ошибка загрузки изображения (сервер недоступен)',
+  settingsSaved: 'Изменения успешно сохранены в настройках!',
+  serverUnavailableSettingsSavedLocally: 'Сервер недоступен. Настройки были загружены в папку Загрузки вашего браузера.',
+  saveManualInstructions: 'Вручную замените файл настроек на сервере скачанным.',
+  serverUnavailableSettingsDownloaded: 'Сервер недоступен. Настройки были скачаны.',
+  passwordIncorrect: 'Текущий пароль неверен',
+  passwordsDoNotMatch: 'Новые пароли не совпадают',
+  passwordUpdated: 'Пароль обновлен!',
+  emptyCVStructureCreated: 'Создана пустая структура для {lang}!',
+  dataImportedSuccess: 'Данные успешно импортированы из {lang}!'
 }

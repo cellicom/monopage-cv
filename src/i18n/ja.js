@@ -152,5 +152,16 @@ export default {
   sectionTitleLabel: 'セクション名（例: 所属団体・ボランティア活動）',
   addSection: 'セクションを追加',
   privacyLabelTitle: '個人情報の取り扱い（プライバシー）',
-  privacyStatement: 'プライバシー同意書宣言'
+  privacyStatement: 'プライバシー同意書宣言',
+  imageUploaded: '画像がアップロードされました！',
+  imageUploadError: '画像のアップロードエラー（サーバーが利用できません）',
+  settingsSaved: '設定が正常に保存されました！',
+  serverUnavailableSettingsSavedLocally: 'サーバーが利用できません。設定はブラウザのダウンロードにダウンロードされました。',
+  saveManualInstructions: 'サーバー上の設定ファイルを手動でダウンロードしたものに置き換えてください。',
+  serverUnavailableSettingsDownloaded: 'サーバーが利用できません。設定がダウンロードされました。',
+  passwordIncorrect: '現在のパスワードが正しくありません',
+  passwordsDoNotMatch: '新しいパスワードが一致しません',
+  passwordUpdated: 'パスワードが更新されました！',
+  emptyCVStructureCreated: '{lang}用の空の構造が作成されました！',
+  dataImportedSuccess: '{lang}からデータが正常にインポートされました！'
 }

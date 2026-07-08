@@ -3,6 +3,8 @@
 
 /* eslint-env node */
 const { configure } = require('quasar/wrappers')
+const pkg = require('./package.json')
+const usePhpApi = pkg.config && pkg.config.usePhpApi !== undefined ? pkg.config.usePhpApi : true
 
 module.exports = configure((/* ctx */) => {
   return {
@@ -51,7 +53,9 @@ module.exports = configure((/* ctx */) => {
 
       // publicPath: '/',
       // analyze: true,
-      // env: {},
+      env: {
+        USE_PHP_API: usePhpApi ? 'true' : 'false'
+      },
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
@@ -69,7 +73,7 @@ module.exports = configure((/* ctx */) => {
               const fs = require('fs');
               const path = require('path');
               server.middlewares.use((req, res, next) => {
-                if (req.url === '/api/save-cv' && req.method === 'POST') {
+                if ((req.url === '/api/save-cv' || req.url.startsWith('/api.php?action=save-cv')) && req.method === 'POST') {
                   let body = '';
                   req.on('data', chunk => {
                     body += chunk;
@@ -88,7 +92,7 @@ module.exports = configure((/* ctx */) => {
                       res.end(JSON.stringify({ error: e.message }));
                     }
                   });
-                } else if (req.url === '/api/save-avatar' && req.method === 'POST') {
+                } else if ((req.url === '/api/save-avatar' || req.url.startsWith('/api.php?action=save-avatar')) && req.method === 'POST') {
                   const chunks = [];
                   req.on('data', chunk => chunks.push(chunk));
                   req.on('end', () => {
@@ -141,7 +145,8 @@ module.exports = configure((/* ctx */) => {
       // Quasar plugins
       plugins: [
         'Notify',
-        'Dialog'
+        'Dialog',
+        'Meta'
       ]
     },
 

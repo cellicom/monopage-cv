@@ -598,9 +598,45 @@ export default {
   data () {
     return {}
   },
+  meta () {
+    return {
+      title: this.metaTitle,
+      meta: {
+        description: { name: 'description', content: this.metaDescription },
+        ogTitle: { property: 'og:title', content: this.metaTitle },
+        ogDescription: { property: 'og:description', content: this.metaDescription },
+        ogImage: { property: 'og:image', content: this.metaImage },
+        ogType: { property: 'og:type', content: 'profile' }
+      }
+    }
+  },
   computed: {
     cv () {
       return this.$root.cv || {}
+    },
+    metaLang () {
+      if (!this.$root.rawCV) return 'en'
+      const def = this.$root.rawCV.defaultLanguage
+      if (def && this.$root.rawCV.data[def]) return def
+      if (this.$root.rawCV.data['en']) return 'en'
+      if (this.$root.rawCV.languages && this.$root.rawCV.languages[0]) return this.$root.rawCV.languages[0]
+      return 'en'
+    },
+    metaTitle () {
+      const name = this.$root.rawCV?.name || 'Curriculum Vitae'
+      return `${name} - Curriculum Vitae`
+    },
+    metaDescription () {
+      const lang = this.metaLang
+      const dataBlock = this.$root.rawCV?.data?.[lang]
+      return dataBlock?.info?.description || ''
+    },
+    metaImage () {
+      const img = this.$root.rawCV?.img || '/avatar.jpg'
+      if (typeof window !== 'undefined') {
+        return window.location.origin + img
+      }
+      return img
     }
   },
   methods:

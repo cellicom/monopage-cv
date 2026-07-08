@@ -13,6 +13,9 @@
     "url": "https://github.com/cellicom/monopage-cv"
   },
   "private": true,
+  "config": {
+    "usePhpApi": true
+  },
   "scripts": {
     "dev": "quasar dev",
     "build": "quasar build",

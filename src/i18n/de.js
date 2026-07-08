@@ -152,5 +152,16 @@ export default {
   sectionTitleLabel: 'Abschnittstitel (z. B. Kulturvereine)',
   addSection: 'Abschnitt hinzufügen',
   privacyLabelTitle: 'Verarbeitung personenbezogener Daten (Datenschutz)',
-  privacyStatement: 'Datenschutzerklärung'
+  privacyStatement: 'Datenschutzerklärung',
+  imageUploaded: 'Bild hochgeladen!',
+  imageUploadError: 'Fehler beim Hochladen des Bildes (Server nicht verfügbar)',
+  settingsSaved: 'Änderungen erfolgreich in den Einstellungen gespeichert!',
+  serverUnavailableSettingsSavedLocally: 'Server nicht verfügbar. Die Einstellungen wurden in Ihren Browser-Downloads heruntergeladen.',
+  saveManualInstructions: 'Ersetzen Sie die Einstellungsdatei auf dem Server manuell durch die heruntergeladene Datei.',
+  serverUnavailableSettingsDownloaded: 'Server nicht verfügbar. Die Einstellungen wurden heruntergeladen.',
+  passwordIncorrect: 'Aktuelles Passwort falsch',
+  passwordsDoNotMatch: 'Neue Passwörter stimmen nicht überein',
+  passwordUpdated: 'Passwort aktualisiert!',
+  emptyCVStructureCreated: 'Leere Struktur für {lang} erstellt!',
+  dataImportedSuccess: 'Daten erfolgreich aus {lang} importiert!'
 }

@@ -152,5 +152,16 @@ export default {
   sectionTitleLabel: '板块名称（如：社会兼职/社会活动）',
   addSection: '添加板块',
   privacyLabelTitle: '个人数据处理与隐私声明',
-  privacyStatement: '隐私授权声明'
+  privacyStatement: '隐私授权声明',
+  imageUploaded: '图片已上传！',
+  imageUploadError: '图片上传失败（服务器不可用）',
+  settingsSaved: '修改成功保存至设置！',
+  serverUnavailableSettingsSavedLocally: '服务器不可用。设置已下载到浏览器的下载文件夹中。',
+  saveManualInstructions: '请用下载的文件手动替换服务器上的设置文件。',
+  serverUnavailableSettingsDownloaded: '服务器不可用。设置已下载。',
+  passwordIncorrect: '当前密码不正确',
+  passwordsDoNotMatch: '新密码不一致',
+  passwordUpdated: '密码已更新！',
+  emptyCVStructureCreated: '已为 {lang} 创建空结构！',
+  dataImportedSuccess: '已成功从 {lang} 导入数据！'
 }

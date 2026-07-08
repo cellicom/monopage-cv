@@ -152,5 +152,16 @@ export default {
   sectionTitleLabel: 'Titre de la section (ex. Associations culturelles)',
   addSection: 'Ajouter une section',
   privacyLabelTitle: 'Traitement des Données Personnelles (Confidentialité)',
-  privacyStatement: 'Déclaration de confidentialité'
+  privacyStatement: 'Déclaration de confidentialité',
+  imageUploaded: 'Image téléchargée !',
+  imageUploadError: 'Erreur de téléchargement de l\'image (serveur indisponible)',
+  settingsSaved: 'Modifications enregistrées avec succès dans les paramètres !',
+  serverUnavailableSettingsSavedLocally: 'Serveur indisponible. Les paramètres ont été téléchargés dans votre dossier Téléchargements.',
+  saveManualInstructions: 'Remplacez manuellement le fichier de paramètres sur le serveur par celui téléchargé.',
+  serverUnavailableSettingsDownloaded: 'Serveur indisponible. Les paramètres ont été téléchargés.',
+  passwordIncorrect: 'Mot de passe actuel incorrect',
+  passwordsDoNotMatch: 'Les nouveaux mots de passe ne correspondent pas',
+  passwordUpdated: 'Mot de passe mis à jour !',
+  emptyCVStructureCreated: 'Structure vide créée pour {lang} !',
+  dataImportedSuccess: 'Données données importées avec succès de {lang} !'
 }

@@ -152,5 +152,16 @@ export default {
   sectionTitleLabel: 'Section Title (e.g. Cultural Associations)',
   addSection: 'Add Section',
   privacyLabelTitle: 'Personal Data Treatment (Privacy)',
-  privacyStatement: 'Privacy Statement'
+  privacyStatement: 'Privacy Statement',
+  imageUploaded: 'Image uploaded!',
+  imageUploadError: 'Image upload error (server unavailable)',
+  settingsSaved: 'Changes successfully saved to settings!',
+  serverUnavailableSettingsSavedLocally: 'Server unavailable. Settings have been downloaded to your browser Downloads.',
+  saveManualInstructions: 'Manually replace the settings file on the server with the downloaded one.',
+  serverUnavailableSettingsDownloaded: 'Server unavailable. Settings have been downloaded.',
+  passwordIncorrect: 'Current password incorrect',
+  passwordsDoNotMatch: 'New passwords do not match',
+  passwordUpdated: 'Password updated!',
+  emptyCVStructureCreated: 'Empty structure created for {lang}!',
+  dataImportedSuccess: 'Data successfully imported from {lang}!'
 }

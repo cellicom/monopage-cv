@@ -134,3 +134,34 @@ All CV contents are stored in `public/cv.json`. Below is the structural overview
 ```
 
 * Ensure that `cv.json` has read/write permissions on your hosting environment to support direct HTTP saving via administrative panel APIs.
+
+---
+
+## 🔧 Backend Saving Configuration (PHP vs. Node.js)
+
+The application supports two backend saving architectures, dynamically selected at build-time.
+
+### 1. Toggle Mode in `package.json`
+You can switch the target saving endpoints by modifying the `"config"` block in your `package.json`:
+
+```json
+{
+  "name": "monopage-cv",
+  ...
+  "config": {
+    "usePhpApi": true
+  }
+}
+```
+
+* **`usePhpApi: true` (Default)**: Directs save and upload operations to `/api.php?action=save-cv` and `/api.php?action=save-avatar`. This enables native saving on generic PHP-capable servers (like Apache shared hostings).
+* **`usePhpApi: false`**: Directs save and upload operations to standard Node REST endpoints `/api/save-cv` and `/api/save-avatar`.
+
+### 2. Deploying on a PHP Server
+When deploying the compiled files (from `dist/spa`) to a PHP server:
+1. Keep `usePhpApi: true` in your `package.json` during the build (`npm run build`).
+2. Upload the contents of `dist/spa` (including `api.php`, `cv.json`, `avatar.jpg`, `index.html`, and `assets/`) to the webserver directory.
+3. Make sure the server folder has **read & write permissions** (e.g. `chmod 755` or `775` depending on server environment) so the PHP process can write changes back to `cv.json` and `avatar.jpg`.
+
+### 3. Local Development Compatibility
+Regardless of what you choose in `package.json`, the Quasar Vite dev server has built-in mock interceptors configured in `quasar.config.js` to catch both routes locally when running `npm run dev`. Local edits will write directly to `public/cv.json` and `public/avatar.jpg` without requiring a local PHP server.
