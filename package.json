@@ -1,0 +1,52 @@
+{
+  "name": "monopage-cv",
+  "version": "0.0.2",
+  "description": "A highly customizable, responsive, and multilingual Curriculum Vitae / Resume web application built with Quasar Framework and Vue 3, featuring an administrative dashboard with real-time translation support.",
+  "productName": "Monopage Curriculum Vitae",
+  "author": {
+    "name": "cellicom",
+    "email": "marano.angelo@gmail.com",
+    "url": "https://github.com/cellicom"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cellicom/monopage-cv"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "lint": "eslint --ext .js,.vue ./",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.4",
+    "axios": "^1.6.0",
+    "core-js": "^3.6.5",
+    "html2pdf.js": "^0.14.0",
+    "quasar": "^2.16.0",
+    "vue": "^3.2.29",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@quasar/app-vite": "^1.11.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "sass": "^1.32.12"
+  },
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "engines": {
+    "node": ">= 16.20.2",
+    "npm": ">= 8.19.4"
+  }
+}
