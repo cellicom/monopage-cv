@@ -1,0 +1,69 @@
+// app global css in Sass form
+*
+  -webkit-font-smoothing: antialiased
+
+.custom-cv-chip
+  background-color: $chip-bg !important
+  color: $chip-text !important
+
+html
+  scroll-behavior: smooth
+
+a
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+    cursor: pointer
+
+.border-left-white
+  border-left: 1px solid white
+  &-no
+    border-left: none
+
+.border-right-white
+  border-right: 1px solid white
+  &-no
+    border-right: none
+
+.border-top-white
+  border-top: 1px solid white
+  &-no
+    border-top: none
+
+.border-bottom-white
+  border-bottom: 1px solid white
+  &-no
+    border-bottome: none
+
+.border-left-grey
+  border-left: 1px solid grey
+  &-no
+    border-left: none
+
+.border-right-grey
+  border-right: 1px solid grey
+  &-no
+    border-right: none
+
+.border-top-grey
+  border-top: 1px solid grey
+  &-no
+    border-top: none
+
+.border-bottom-grey
+  border-bottom: 1px solid grey
+  &-no
+    border-bottome: none
+
+.col-12
+  @media print
+    width: initial
+
+.q-header, .q-page-container
+  @media print
+    display: none !important
+
+.q-page-container
+  @media print
+    display: block !important
+    padding-top: 0 !important

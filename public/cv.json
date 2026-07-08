@@ -1,0 +1,568 @@
+{
+  "name": "John Doe",
+  "img": "/avatar.jpg",
+  "birthDate": "January 1, 1990",
+  "languages": [
+    "en",
+    "it"
+  ],
+  "data": {
+    "en": {
+      "info": {
+        "icon": "mdi-account",
+        "description": "Senior Software Engineer",
+        "about": "Experienced software engineer with a passion for building clean, scalable, and responsive web applications. Specialized in modern JavaScript frameworks, cloud computing architectures, and agile methodologies.",
+        "data": [
+          {
+            "label": "Nationality",
+            "value": "American",
+            "link": null
+          },
+          {
+            "label": "Address",
+            "value": "123 Main Street, New York, NY 10001",
+            "link": null
+          },
+          {
+            "label": "Driving license",
+            "value": "Class D",
+            "link": null
+          },
+          {
+            "label": "Email",
+            "value": "john.doe@example.com",
+            "link": "mailto:john.doe@example.com"
+          },
+          {
+            "label": "Mobile",
+            "value": "+1 (555) 019-9000",
+            "link": "tel:+15550199000"
+          },
+          {
+            "label": "GitHub",
+            "value": "github.com/johndoe",
+            "link": "https://github.com"
+          }
+        ]
+      },
+      "exp": {
+        "icon": "mdi-briefcase",
+        "title": "Experience",
+        "data": [
+          {
+            "city": "New York",
+            "from": "01/2018",
+            "to": "Present",
+            "separator": "-",
+            "title": "Lead Software Engineer",
+            "where": "Tech Solutions Inc.",
+            "description": [
+              {
+                "label": "Lead a high-performing team of 5 developers to design and deploy cloud APIs.",
+                "link": null
+              },
+              {
+                "label": "Successfully migrated legacy systems to microservices, reducing operational latency by 35%.",
+                "link": null
+              }
+            ],
+            "skills": [
+              "Teamwork",
+              "Vue.js",
+              "Node.js",
+              "Docker",
+              "AWS"
+            ],
+            "expanded": false
+          },
+          {
+            "city": "Boston",
+            "from": "06/2014",
+            "to": "12/2017",
+            "separator": "-",
+            "title": "Frontend Developer",
+            "where": "Creative Web Agency",
+            "description": [
+              {
+                "label": "Developed complex and responsive dashboard portals for enterprise clients.",
+                "link": null
+              },
+              {
+                "label": "Collaborated with designers to build reusable UI pattern libraries using Vue and SASS.",
+                "link": null
+              }
+            ],
+            "skills": [
+              "HTML5",
+              "CSS3",
+              "JavaScript",
+              "SASS",
+              "Git"
+            ],
+            "expanded": false
+          }
+        ]
+      },
+      "skill": {
+        "icon": "mdi-tools",
+        "title": "Skills",
+        "data": [
+          {
+            "label": "JavaScript",
+            "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+          },
+          {
+            "label": "TypeScript",
+            "link": "https://www.typescriptlang.org/"
+          },
+          {
+            "label": "Vue.js",
+            "link": "https://vuejs.org/"
+          },
+          {
+            "label": "Node.js",
+            "link": "https://nodejs.org/"
+          },
+          {
+            "label": "HTML5",
+            "link": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+          },
+          {
+            "label": "CSS3",
+            "link": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+          },
+          {
+            "label": "Docker",
+            "link": "https://www.docker.com/"
+          },
+          {
+            "label": "AWS",
+            "link": "https://aws.amazon.com/"
+          },
+          {
+            "label": "Git",
+            "link": "https://git-scm.com/"
+          }
+        ]
+      },
+      "lang": {
+        "icon": "mdi-translate",
+        "title": "Languages",
+        "data": [
+          {
+            "countrycode": "gb",
+            "label": "English",
+            "level": "Native speaker"
+          },
+          {
+            "countrycode": "es",
+            "label": "Spanish",
+            "level": "Conversational (B2)"
+          }
+        ]
+      },
+      "school": {
+        "icon": "mdi-school",
+        "title": "Education",
+        "data": [
+          {
+            "city": "New York",
+            "from": "2010",
+            "to": "2014",
+            "separator": "-",
+            "title": "Bachelor of Science in Computer Science",
+            "where": "University of New York",
+            "description": [
+              {
+                "label": "Graduated with Honors",
+                "link": null
+              },
+              {
+                "label": "Specialization in Software Architecture and Database Systems",
+                "link": null
+              }
+            ],
+            "skills": [
+              "Software Architecture",
+              "Database Systems",
+              "Algorithms"
+            ],
+            "expanded": false
+          }
+        ]
+      },
+      "courses": {
+        "icon": "mdi-teach",
+        "title": "Certificates and courses",
+        "data": [
+          {
+            "city": "Online",
+            "from": "15/05/2021",
+            "to": "",
+            "separator": "",
+            "title": "AWS Certified Solutions Architect",
+            "where": "Amazon Web Services Training",
+            "description": [
+              {
+                "label": "Validation of cloud design skills and solutions deploying",
+                "link": null
+              }
+            ],
+            "skills": [
+              "AWS Cloud",
+              "Systems Architecting"
+            ],
+            "expanded": false
+          }
+        ]
+      },
+      "managementSkill": {
+        "icon": "mdi-account-group",
+        "title": "Organizational and Management Skills",
+        "data": [
+          {
+            "label": "Strong team leadership and mentoring capabilities.",
+            "link": null
+          },
+          {
+            "label": "Excellent project management and task prioritisation using Scrum.",
+            "link": null
+          }
+        ]
+      },
+      "comunicativeSkill": {
+        "icon": "mdi-account-voice",
+        "title": "Communication Skills",
+        "data": [
+          {
+            "label": "Exceptional presentation and reporting skills.",
+            "link": null
+          },
+          {
+            "label": "Fluent customer communication and technical concepts simplification.",
+            "link": null
+          }
+        ]
+      },
+      "digitalSkill": {
+        "icon": "mdi-laptop",
+        "title": "Digital Skills",
+        "data": [
+          {
+            "title": "Open Source Contributions",
+            "description": [
+              {
+                "label": "Created a lightweight state management library for Vue 3",
+                "link": "https://github.com"
+              }
+            ],
+            "expanded": false
+          }
+        ]
+      },
+      "others": {
+        "icon": "mdi-information",
+        "title": "Additional Information",
+        "data": [
+          {
+            "title": "Activities & Hobbies",
+            "description": [
+              {
+                "label": "Amateur landscape photographer and hiker.",
+                "link": null
+              }
+            ],
+            "skills": [
+              "Photography"
+            ],
+            "expanded": false
+          }
+        ]
+      },
+      "privacy": {
+        "icon": "mdi-draw",
+        "title": "Personal data treatment",
+        "description": "I authorize the processing of my personal data contained in my curriculum vitae in accordance with EU General Data Protection Regulation (GDPR)."
+      }
+    },
+    "it": {
+      "info": {
+        "icon": "mdi-account",
+        "description": "Ingegnere del Software Senior",
+        "about": "Ingegnere del software di grande esperienza con una forte passione per lo sviluppo di applicazioni web pulite, scalabili e responsive. Specializzato in framework JavaScript moderni, architetture cloud e metodologie agili.",
+        "data": [
+          {
+            "label": "Nazionalità",
+            "value": "Americana",
+            "link": null
+          },
+          {
+            "label": "Indirizzo",
+            "value": "123 Main Street, New York, NY 10001",
+            "link": null
+          },
+          {
+            "label": "Patente di guida",
+            "value": "Classe D (corrispondente a Patente B)",
+            "link": null
+          },
+          {
+            "label": "Email",
+            "value": "john.doe@example.com",
+            "link": "mailto:john.doe@example.com"
+          },
+          {
+            "label": "Cellulare",
+            "value": "+1 (555) 019-9000",
+            "link": "tel:+15550199000"
+          },
+          {
+            "label": "GitHub",
+            "value": "github.com/johndoe",
+            "link": "https://github.com"
+          }
+        ]
+      },
+      "exp": {
+        "icon": "mdi-briefcase",
+        "title": "Esperienza",
+        "data": [
+          {
+            "city": "New York",
+            "from": "01/2018",
+            "to": "Presente",
+            "separator": "-",
+            "title": "Capo Ingegnere del Software",
+            "where": "Tech Solutions Inc.",
+            "description": [
+              {
+                "label": "Guida di un team ad alte prestazioni di 5 sviluppatori per la progettazione e il deploy di API cloud.",
+                "link": null
+              },
+              {
+                "label": "Migrazione di sistemi legacy verso microservizi, riducendo la latenza operativa del 35%.",
+                "link": null
+              }
+            ],
+            "skills": [
+              "Lavoro di gruppo",
+              "Vue.js",
+              "Node.js",
+              "Docker",
+              "AWS"
+            ],
+            "expanded": false
+          },
+          {
+            "city": "Boston",
+            "from": "06/2014",
+            "to": "12/2017",
+            "separator": "-",
+            "title": "Sviluppatore Frontend",
+            "where": "Creative Web Agency",
+            "description": [
+              {
+                "label": "Sviluppo di portali dashboard complessi e responsive per clienti aziendali.",
+                "link": null
+              },
+              {
+                "label": "Collaborazione con designer per la creazione di librerie di componenti UI riutilizzabili con Vue e SASS.",
+                "link": null
+              }
+            ],
+            "skills": [
+              "HTML5",
+              "CSS3",
+              "JavaScript",
+              "SASS",
+              "Git"
+            ],
+            "expanded": false
+          }
+        ]
+      },
+      "skill": {
+        "icon": "mdi-tools",
+        "title": "Competenze",
+        "data": [
+          {
+            "label": "JavaScript",
+            "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+          },
+          {
+            "label": "TypeScript",
+            "link": "https://www.typescriptlang.org/"
+          },
+          {
+            "label": "Vue.js",
+            "link": "https://vuejs.org/"
+          },
+          {
+            "label": "Node.js",
+            "link": "https://nodejs.org/"
+          },
+          {
+            "label": "HTML5",
+            "link": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+          },
+          {
+            "label": "CSS3",
+            "link": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+          },
+          {
+            "label": "Docker",
+            "link": "https://www.docker.com/"
+          },
+          {
+            "label": "AWS",
+            "link": "https://aws.amazon.com/"
+          },
+          {
+            "label": "Git",
+            "link": "https://git-scm.com/"
+          }
+        ]
+      },
+      "lang": {
+        "icon": "mdi-translate",
+        "title": "Lingue",
+        "data": [
+          {
+            "countrycode": "gb",
+            "label": "Inglese",
+            "level": "Madrelingua"
+          },
+          {
+            "countrycode": "es",
+            "label": "Spagnolo",
+            "level": "Livello Conversazionale (B2)"
+          }
+        ]
+      },
+      "school": {
+        "icon": "mdi-school",
+        "title": "Istruzione",
+        "data": [
+          {
+            "city": "New York",
+            "from": "2010",
+            "to": "2014",
+            "separator": "-",
+            "title": "Laurea Triennale in Informatica",
+            "where": "University of New York",
+            "description": [
+              {
+                "label": "Laureato con Lode",
+                "link": null
+              },
+              {
+                "label": "Specializzazione in Architettura del Software e Sistemi di Database",
+                "link": null
+              }
+            ],
+            "skills": [
+              "Architettura del Software",
+              "Sistemi di Database",
+              "Algoritmi"
+            ],
+            "expanded": false
+          }
+        ]
+      },
+      "courses": {
+        "icon": "mdi-teach",
+        "title": "Certificati e corsi",
+        "data": [
+          {
+            "city": "Online",
+            "from": "15/05/2021",
+            "to": "",
+            "separator": "",
+            "title": "Architetto di Soluzioni AWS Certificato",
+            "where": "Amazon Web Services Training",
+            "description": [
+              {
+                "label": "Validazione delle competenze di progettazione cloud e distribuzione di soluzioni",
+                "link": null
+              }
+            ],
+            "skills": [
+              "AWS Cloud",
+              "Architettura dei Sistemi"
+            ],
+            "expanded": false
+          }
+        ]
+      },
+      "managementSkill": {
+        "icon": "mdi-account-group",
+        "title": "Competenze Organizzative e Gestionali",
+        "data": [
+          {
+            "label": "Forte attitudine alla leadership di team e al mentoring.",
+            "link": null
+          },
+          {
+            "label": "Eccellente gestione di progetti e priorità di task con metodologia Scrum.",
+            "link": null
+          }
+        ]
+      },
+      "comunicativeSkill": {
+        "icon": "mdi-account-voice",
+        "title": "Competenze Comunicative",
+        "data": [
+          {
+            "label": "Eccezionali capacità di presentazione e reporting.",
+            "link": null
+          },
+          {
+            "label": "Comunicazione fluida con i clienti e semplificazione di concetti tecnici complessi.",
+            "link": null
+          }
+        ]
+      },
+      "digitalSkill": {
+        "icon": "mdi-laptop",
+        "title": "Competenze Digitali",
+        "data": [
+          {
+            "title": "Contributi Open Source",
+            "description": [
+              {
+                "label": "Creazione di una libreria di gestione dello stato leggera per Vue 3",
+                "link": "https://github.com"
+              }
+            ],
+            "expanded": false
+          }
+        ]
+      },
+      "others": {
+        "icon": "mdi-information",
+        "title": "Informazioni Addizionali",
+        "data": [
+          {
+            "title": "Attività e Hobbies",
+            "description": [
+              {
+                "label": "Fotografo paesaggista amatoriale ed escursionista.",
+                "link": null
+              }
+            ],
+            "skills": [
+              "Fotografia"
+            ],
+            "expanded": false
+          }
+        ]
+      },
+      "privacy": {
+        "icon": "mdi-draw",
+        "title": "Trattamento dei dati personali",
+        "description": "Autorizzo il trattamento dei miei dati personali ai sensi del Regolamento Generale sulla Protezione dei Dati (GDPR - Regolamento UE 2016/679)."
+      }
+    }
+  },
+  "adminPassword": null
+}
