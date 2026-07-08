@@ -22,6 +22,8 @@ export default {
   digSkills: 'Comp. Digitali',
   privacyExtra: 'Privacy & Altro',
   settingsTab: 'Impostazioni',
+  themeLabel: 'Tema',
+  defaultLanguageLabel: 'Lingua Predefinita (rileva browser se vuoto)',
   passwordTab: 'Password',
   otherSkills: 'Altre Comp.',
   

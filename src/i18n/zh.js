@@ -22,6 +22,8 @@ export default {
   digSkills: '数字技能',
   privacyExtra: '隐私与其它',
   settingsTab: '设置',
+  themeLabel: '主题',
+  defaultLanguageLabel: '默认语言（若为空则自动检测浏览器语言）',
   passwordTab: '密码管理',
   otherSkills: '其它能力',
   

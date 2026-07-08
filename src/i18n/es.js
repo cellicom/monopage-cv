@@ -22,6 +22,8 @@ export default {
   digSkills: 'Comp. Digitales',
   privacyExtra: 'Privacidad y Más',
   settingsTab: 'Ajustes',
+  themeLabel: 'Tema',
+  defaultLanguageLabel: 'Idioma Predeterminado (detecta navegador si está vacío)',
   passwordTab: 'Contraseña',
   otherSkills: 'Otras Competencias',
   

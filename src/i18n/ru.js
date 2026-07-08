@@ -22,6 +22,8 @@ export default {
   digSkills: 'Цифровые навыки',
   privacyExtra: 'Конфиденциальность',
   settingsTab: 'Настройки',
+  themeLabel: 'Тема',
+  defaultLanguageLabel: 'Язык по умолчанию (определяет браузер, если пусто)',
   passwordTab: 'Пароль',
   otherSkills: 'Другие навыки',
   

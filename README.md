@@ -10,6 +10,9 @@ A highly customizable, responsive, and multilingual Curriculum Vitae (CV) / Resu
 * **Browser Language Detection**: Automatically detects browser's language on initial load, falling back to English or the first available CV language.
 * **Secured Admin Panel**: Login lock screen with custom back-to-CV action. Contains panel tabs for each profile component.
 * **Database Backup & Restore**: Download and import the entire CV configuration directly from the administrative Settings panel.
+* **Dynamic Styling Themes**: Real-time theme engine switcher featuring 10 professional color palettes (Default Quasar Blue, Navy & Charcoal, Forest & Sand, Burgundy & Gold, Teal & Slate, Dark Slate & Orange, Pink, Magenta, Darcula with ochre highlight, and Vaporwave) with visual color block previews in dropdown selectors.
+* **Default Language Override**: Select and persist a specific default language for the public CV page, featuring a clearable setting that defaults back to browser detection.
+* **Click-to-Dismiss Notifications**: Quick and simple global toast dismissal by clicking anywhere directly on the notification body.
 * **Centralized Core Metadata**: Profile photo, name, and date of birth are saved globally at the database root to avoid translations redundancy.
 * **Flexible List Reordering**: Accordion sections with move-up/down sorting controls, visibility toggling, and complete deletion with modal checks.
 * **Translation Utilities**: Import existing profiles when translating your CV into a new language or start from a blank slate.
@@ -60,11 +63,13 @@ The admin panel is accessible at `http://localhost:9000/#/admin`.
 ### 2. Managing Your Settings & Backup
 1. Navigate to the ⚙️ **Settings** tab in the admin drawer (marked with a cog icon).
 2. **Password**: Enter your current password, type a new password, confirm it, and click **Change Password** to update the panel credentials.
-3. **Backup**: Use the **Download Settings** button to save the entire `cv.json` database locally, or the **Import Settings** button to upload and apply an existing config file.
+3. **Theme**: Swap styling presets in real-time. Dropdown options display block previews of theme primary, secondary, and accent colors.
+4. **Default Language**: Define the default language to serve to public visitors. Leaving this field clear will instruct the app to detect and match the browser language automatically on load.
+5. **Backup**: Use the **Download Settings** button to save the entire `cv.json` database locally, or the **Import Settings** button to upload and apply an existing config file.
 
 ### 3. Curriculum Section Tabs
 The Admin Panel features 10 dedicated sections:
-* ⚙️ **Settings**: Lock credentials, passwords, and backup management.
+* ⚙️ **Settings**: Lock credentials, passwords, default language, themes, and backup management.
 * 👤 **Personal Info**: Full name, qualifications, profile image (avatar upload centered at the top of the tab), professional profile (about text), and custom contact fields (Email, Phone, links, etc.) with manual re-ordering.
 * 💼 **Experience**: Chronological work experiences. Each item has drag-and-drop/arrows reordering, visibility switches, and list detail items.
 * 🛠️ **Skills**: Tag chips with descriptions and documentation links. Backed by Sass variables `$chip-bg` and `$chip-text`.
@@ -91,6 +96,8 @@ All CV contents are stored in `public/cv.json`. Below is the structural overview
   "name": "John Doe",
   "img": "/avatar.jpg",
   "birthDate": "January 1, 1990",
+  "theme": "default",
+  "defaultLanguage": null,
   "languages": ["en", "it"],
   "data": {
     "en": {

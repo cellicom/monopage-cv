@@ -22,6 +22,8 @@ export default {
   digSkills: 'Digital Skills',
   privacyExtra: 'Privacy & More',
   settingsTab: 'Settings',
+  themeLabel: 'Theme',
+  defaultLanguageLabel: 'Default Language (detects browser if empty)',
   passwordTab: 'Password',
   otherSkills: 'Other Skills',
   

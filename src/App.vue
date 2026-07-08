@@ -5,7 +5,81 @@
 </template>
 
 <script>
+import { setCssVar } from 'quasar'
 import translations from './i18n.js'
+
+const themes = {
+  default: {
+    primary: '#1976D2',
+    secondary: '#26A69A',
+    accent: '#ffffff',
+    chipBg: '#e0e0e0',
+    chipText: '#212121'
+  },
+  navy: {
+    primary: '#1F3864',
+    secondary: '#333333',
+    accent: '#ffffff',
+    chipBg: '#E1EBF5',
+    chipText: '#1F3864'
+  },
+  forest: {
+    primary: '#1E4D2B',
+    secondary: '#8F754F',
+    accent: '#ffffff',
+    chipBg: '#E2EDE4',
+    chipText: '#1E4D2B'
+  },
+  burgundy: {
+    primary: '#6E1F2E',
+    secondary: '#A68A56',
+    accent: '#ffffff',
+    chipBg: '#F7EBEF',
+    chipText: '#6E1F2E'
+  },
+  teal: {
+    primary: '#168F8B',
+    secondary: '#4A5568',
+    accent: '#ffffff',
+    chipBg: '#E2F1F0',
+    chipText: '#168F8B'
+  },
+  slate: {
+    primary: '#2D3748',
+    secondary: '#DD6B20',
+    accent: '#ffffff',
+    chipBg: '#EDF2F7',
+    chipText: '#2D3748'
+  },
+  pink: {
+    primary: '#E91E63',
+    secondary: '#F48FB1',
+    accent: '#ffffff',
+    chipBg: '#FCE4EC',
+    chipText: '#C2185B'
+  },
+  magenta: {
+    primary: '#9C27B0',
+    secondary: '#BA68C8',
+    accent: '#ffffff',
+    chipBg: '#F3E5F5',
+    chipText: '#7B1FA2'
+  },
+  darcula: {
+    primary: '#2B2B2B',
+    secondary: '#A9B7C6',
+    accent: '#FFCB42',
+    chipBg: '#3C3F41',
+    chipText: '#FFCB42'
+  },
+  vaporwave: {
+    primary: '#FF71CE',
+    secondary: '#01CDFE',
+    accent: '#ffffff',
+    chipBg: '#FFF3FA',
+    chipText: '#B967C7'
+  }
+}
 
 export default {
   name: 'App',
@@ -32,6 +106,8 @@ export default {
         name: '',
         img: '',
         birthDate: '',
+        theme: 'default',
+        defaultLanguage: null,
         data: {},
         adminPassword: ''
       },
@@ -53,6 +129,27 @@ export default {
   created () {
     window.mainVue = this
     this.childRefs = []
+
+    if (this.$q && this.$q.notify) {
+      const originalNotify = this.$q.notify.bind(this.$q)
+      this.$q.notify = (options) => {
+        const opt = typeof options === 'string' ? { message: options } : { ...options }
+        const id = Math.random().toString(36).substring(2, 9)
+        opt.classes = (opt.classes || '') + ' clickable-toast-' + id
+        const dismiss = originalNotify(opt)
+        setTimeout(() => {
+          const el = document.querySelector('.clickable-toast-' + id)
+          if (el) {
+            el.style.cursor = 'pointer'
+            el.addEventListener('click', () => {
+              dismiss()
+            })
+          }
+        }, 100)
+        return dismiss
+      }
+    }
+
     this.$axios.get('/cv.json')
       .then(response => {
         const raw = response.data
@@ -113,13 +210,17 @@ export default {
           })
         }
 
-        const browserLang = (typeof navigator !== 'undefined' && (navigator.language || navigator.userLanguage) || '').split('-')[0].toLowerCase()
-        if (browserLang && this.rawCV.languages.includes(browserLang)) {
-          this.currentLang = browserLang
-        } else if (this.rawCV.languages.includes('en')) {
-          this.currentLang = 'en'
+        if (this.rawCV.defaultLanguage && this.rawCV.languages.includes(this.rawCV.defaultLanguage)) {
+          this.currentLang = this.rawCV.defaultLanguage
         } else {
-          this.currentLang = this.rawCV.languages[0] || 'en'
+          const browserLang = (typeof navigator !== 'undefined' && (navigator.language || navigator.userLanguage) || '').split('-')[0].toLowerCase()
+          if (browserLang && this.rawCV.languages.includes(browserLang)) {
+            this.currentLang = browserLang
+          } else if (this.rawCV.languages.includes('en')) {
+            this.currentLang = 'en'
+          } else {
+            this.currentLang = this.rawCV.languages[0] || 'en'
+          }
         }
         if (!this.rawCV.data[this.currentLang]) {
           this.rawCV.data[this.currentLang] = {
@@ -136,6 +237,11 @@ export default {
             privacy: { title: 'Privacy', description: '' }
           }
         }
+        if (this.rawCV.theme === undefined) {
+          this.rawCV.theme = 'default'
+        }
+        this.applyTheme(this.rawCV.theme)
+
         this.cv = this.rawCV.data[this.currentLang]
         this.loadError = false
       })
@@ -159,6 +265,16 @@ export default {
     t (key) {
       const dict = this.translations[this.currentLang] || this.translations['it']
       return dict[key] || this.translations['it'][key] || key
+    },
+    applyTheme (themeKey) {
+      const t = themes[themeKey] || themes.default
+      setCssVar('primary', t.primary)
+      setCssVar('secondary', t.secondary)
+      setCssVar('accent', t.accent)
+      if (typeof document !== 'undefined') {
+        document.documentElement.style.setProperty('--chip-bg-color', t.chipBg)
+        document.documentElement.style.setProperty('--chip-text-color', t.chipText)
+      }
     }
   }
 }

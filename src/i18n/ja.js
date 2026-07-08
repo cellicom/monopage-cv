@@ -22,6 +22,8 @@ export default {
   digSkills: 'ITスキル',
   privacyExtra: 'プライバシー設定',
   settingsTab: '設定',
+  themeLabel: 'テーマ',
+  defaultLanguageLabel: 'デフォルト言語（空の場合はブラウザ言語を検出）',
   passwordTab: 'パスワード',
   otherSkills: 'その他のスキル',
   

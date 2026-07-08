@@ -221,6 +221,64 @@
                 </div>
                 <q-separator class="q-my-lg" />
 
+                <!-- Theme Section -->
+                <div class="text-h6 text-bold q-mb-md">{{ $root.t('themeLabel') }}</div>
+                <div class="row q-col-gutter-sm q-mb-lg" style="max-width:400px">
+                  <div class="col-12">
+                    <q-select
+                      v-model="$root.rawCV.theme"
+                      :options="themeOptions"
+                      emit-value
+                      map-options
+                      outlined
+                      dense
+                      @update:model-value="onThemeChange"
+                    >
+                      <!-- Selected item preview inside the input box -->
+                      <template v-slot:selected-item="scope">
+                        <div class="row items-center q-gutter-xs">
+                          <div :style="`width: 12px; height: 12px; background-color: ${scope.opt.colors ? scope.opt.colors.primary : '#ccc'}; border: 1px solid #ccc; border-radius: 2px;`" />
+                          <div :style="`width: 12px; height: 12px; background-color: ${scope.opt.colors ? scope.opt.colors.secondary : '#ccc'}; border: 1px solid #ccc; border-radius: 2px;`" />
+                          <div :style="`width: 12px; height: 12px; background-color: ${scope.opt.colors ? scope.opt.colors.chipBg : '#ccc'}; border: 1px solid #ccc; border-radius: 2px;`" />
+                          <span class="q-ml-sm">{{ scope.opt.label }}</span>
+                        </div>
+                      </template>
+                      <!-- Options preview inside the dropdown list -->
+                      <template v-slot:option="scope">
+                        <q-item v-bind="scope.itemProps">
+                          <q-item-section avatar class="q-pr-none" style="min-width: auto;">
+                            <div class="row q-gutter-xs items-center q-mr-sm">
+                              <div :style="`width: 14px; height: 14px; background-color: ${scope.opt.colors ? scope.opt.colors.primary : '#ccc'}; border: 1px solid #ccc; border-radius: 2px;`" />
+                              <div :style="`width: 14px; height: 14px; background-color: ${scope.opt.colors ? scope.opt.colors.secondary : '#ccc'}; border: 1px solid #ccc; border-radius: 2px;`" />
+                              <div :style="`width: 14px; height: 14px; background-color: ${scope.opt.colors ? scope.opt.colors.chipBg : '#ccc'}; border: 1px solid #ccc; border-radius: 2px;`" />
+                            </div>
+                          </q-item-section>
+                          <q-item-section>
+                            <q-item-label>{{ scope.opt.label }}</q-item-label>
+                          </q-item-section>
+                        </q-item>
+                      </template>
+                    </q-select>
+                  </div>
+                </div>
+
+                <div class="row q-col-gutter-sm q-mb-lg" style="max-width:400px">
+                  <div class="col-12">
+                    <q-select
+                      v-model="$root.rawCV.defaultLanguage"
+                      :options="activeLanguagesOptions"
+                      emit-value
+                      map-options
+                      outlined
+                      dense
+                      clearable
+                      :label="$root.t('defaultLanguageLabel')"
+                    />
+                  </div>
+                </div>
+
+                <q-separator class="q-my-lg" />
+
                 <!-- Backup Section -->
                 <div class="text-h6 text-bold q-mb-md">{{ $root.t('backupSection') }}</div>
                 <div class="row q-col-gutter-sm" style="max-width:400px">
@@ -1089,7 +1147,19 @@ export default {
         others: { data: [] },
         privacy: {}
       },
-      avatarTs: Date.now()
+      avatarTs: Date.now(),
+      themeOptions: [
+        { label: 'Default (Quasar Blue)', value: 'default', colors: { primary: '#1976D2', secondary: '#26A69A', chipBg: '#e0e0e0' } },
+        { label: 'Navy & Charcoal', value: 'navy', colors: { primary: '#1F3864', secondary: '#333333', chipBg: '#E1EBF5' } },
+        { label: 'Forest & Sand', value: 'forest', colors: { primary: '#1E4D2B', secondary: '#8F754F', chipBg: '#E2EDE4' } },
+        { label: 'Burgundy & Gold', value: 'burgundy', colors: { primary: '#6E1F2E', secondary: '#A68A56', chipBg: '#F7EBEF' } },
+        { label: 'Teal & Slate', value: 'teal', colors: { primary: '#168F8B', secondary: '#4A5568', chipBg: '#E2F1F0' } },
+        { label: 'Dark Slate & Orange', value: 'slate', colors: { primary: '#2D3748', secondary: '#DD6B20', chipBg: '#EDF2F7' } },
+        { label: 'Pink', value: 'pink', colors: { primary: '#E91E63', secondary: '#F48FB1', chipBg: '#FCE4EC' } },
+        { label: 'Magenta', value: 'magenta', colors: { primary: '#9C27B0', secondary: '#BA68C8', chipBg: '#F3E5F5' } },
+        { label: 'Darcula', value: 'darcula', colors: { primary: '#2B2B2B', secondary: '#A9B7C6', chipBg: '#FFCB42' } },
+        { label: 'Vaporwave', value: 'vaporwave', colors: { primary: '#FF71CE', secondary: '#01CDFE', chipBg: '#FFF3FA' } }
+      ]
     }
   },
   computed: {
@@ -1103,6 +1173,15 @@ export default {
     canDeleteCurrentLang () {
       if (!window.mainVue || !window.mainVue.rawCV || !window.mainVue.rawCV.languages) return false
       return window.mainVue.rawCV.languages.length > 1
+    },
+    activeLanguagesOptions () {
+      if (!window.mainVue || !window.mainVue.languagesList || !window.mainVue.rawCV || !window.mainVue.rawCV.languages) return []
+      return window.mainVue.languagesList
+        .filter(l => window.mainVue.rawCV.languages.includes(l.code))
+        .map(l => ({
+          value: l.code,
+          label: `${l.emoji} ${l.label}`
+        }))
     }
   },
   mounted () {
@@ -1334,6 +1413,9 @@ export default {
           if (!imported || typeof imported !== 'object' || !imported.data) throw new Error('invalid')
           window.mainVue.rawCV = imported
           this.cloneCV()
+          if (window.mainVue.rawCV.theme) {
+            window.mainVue.applyTheme(window.mainVue.rawCV.theme)
+          }
           this.$q.notify({ type: 'positive', message: this.$root.t('importSettingsSuccess') })
         } catch {
           this.$q.notify({ type: 'negative', message: this.$root.t('importSettingsError') })
@@ -1342,6 +1424,11 @@ export default {
       reader.readAsText(file)
       // Reset input so the same file can be re-imported
       event.target.value = ''
+    },
+    onThemeChange (val) {
+      if (window.mainVue) {
+        window.mainVue.applyTheme(val)
+      }
     },
 
     // Form Manipulation Methods

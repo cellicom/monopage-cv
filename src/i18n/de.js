@@ -22,6 +22,8 @@ export default {
   digSkills: 'Digitale Kompetenzen',
   privacyExtra: 'Datenschutz & Mehr',
   settingsTab: 'Einstellungen',
+  themeLabel: 'Thema',
+  defaultLanguageLabel: 'Standardsprache (erkennt Browser, wenn leer)',
   passwordTab: 'Passwort',
   otherSkills: 'Andere Kompetenzen',
   
